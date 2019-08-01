@@ -1,18 +1,24 @@
-var arreglo = `Esto es
-una prueba
-de.
+var string = '';
 
-Perrosjajajajajaja asdads
-asasd`;
+
 
 var boton = document.querySelector("#boton");
-var texto = document.querySelector("#texto");
-texto.innerText=arreglo;
+var text = document.querySelector("#texto");
+
 boton.addEventListener('click', cambiartexto);
-console.log(arreglo.length);
 
 
-function cambiartexto(){
-    var var2=arreglo.replace("e"," ");
-console.log(var2);
+
+function cambiartexto() {
+    var stringfinal = [];
+    string = texto.value;
+    //  stringfinal = string.replace(/\n/gi, ' '); .replace(/\.  /gi, '. \n\n');
+    stringfinal = string.replace(/\.\n/gi, '#####');
+    setTimeout(() => {
+        stringfinal = stringfinal.replace(/\n/gi, ' ').replace(/#####/gi, '.\n\n');
+        console.log(stringfinal);
+        texto.value = stringfinal;
+    }, 50);
+
+    texto.value = stringfinal;
 }
